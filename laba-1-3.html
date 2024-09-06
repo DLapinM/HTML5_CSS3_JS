@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Моя страница</title>
+	</head>
+	<body>
+		<script>
+			var getDay = function(n)
+				{
+					if (n < 0) n = 0;
+					if (n >= 100) n = n%100;
+					if (n > 20) n = n%10;
+					if (n <= 20)
+					{
+						if (n==0) return "дней";
+						if (n==1) return "день";
+						if (n==2) return "дня";
+						if (n==3) return "дня";
+						if (n==4) return "дня";
+						if (n==5) return "дней";
+						if (n==6) return "дней";
+						if (n==7) return "дней";
+						if (n==8) return "дней";
+						if (n==9) return "дней";
+						if (n==10) return "дней";
+						if (n==11) return "дней";
+						if (n==12) return "дней";
+						if (n==13) return "дней";
+						if (n==14) return "дней";
+						if (n==15) return "дней";
+						if (n==16) return "дней";
+						if (n==17) return "дней";
+						if (n==18) return "дней";
+						if (n==19) return "дней";
+						if (n==20) return "дней";
+					}
+					else return "дней";
+				}
+				var x = Number(prompt('Введите число дней'));
+				alert("До конца вашей учёбы осталось " + x + " " + getDay(x) + ".");
+		</script>
+	</body>
+</html>

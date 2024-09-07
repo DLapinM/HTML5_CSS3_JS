@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Моя страница</title>
+	</head>
+	<body>
+		<script>
+			function NewClass (title, url)
+			{
+				this.title = title;
+				this.url = url;
+				this.show = function()
+					{
+						document.write('<p>title = "' + this.title + '", url = "' + this.url + '"</p>');
+					};
+			}
+
+			NewClass1 = new NewClass ("Яндекс", "https://www.yandex.ru");
+			NewClass2 = new NewClass ("Рамблер", "https://www.rambler.ru");
+
+			NewClass1.show();
+			NewClass2.show();
+		</script>
+	</body>
+</html>

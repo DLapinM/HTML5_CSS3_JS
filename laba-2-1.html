@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Моя страница</title>
+	</head>
+	<body>
+
+	<img src='apple.jpg' id='pic' onclick="imgClick()"></img>
+
+		<script>
+			var start_x = "200px";
+			var start_y = "150px";
+
+    			function imgClick()
+			{
+				if ((document.getElementById('pic').style.width == start_x)&&(document.getElementById('pic').style.height == start_y))
+				{
+					document.getElementById('pic').style.width="400px";
+    					document.getElementById('pic').style.height="300px";
+				}
+    				else
+				{
+					document.getElementById('pic').style.width="200px";
+    					document.getElementById('pic').style.height="150px";
+				}
+    			}       
+		</script>
+	</body>
+</html>

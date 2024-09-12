@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Моя страница</title>
+
+<script>
+        window.addEventListener('DOMContentLoaded', () => {
+      (function() {
+
+          function myWindow()
+      {
+	"use strict";
+	var win2 = window.open("win2.html", "display_win2", "width = 300, height = 400, status=1, toolbar=1, menubar=1,titlebar=1,location=1,resizable=1");
+      }
+            var hrElement = document.getElementById('my_hr');
+            hrElement.addEventListener('click', myWindow);
+
+        })();});
+</script>
+
+	</head>
+	<body>
+
+	<a href="" id="my_hr"><p style="font-size: 16pt; font-family: verdana; font-style: italic;">Новое окно</p></a>
+
+	</body>
+</html>

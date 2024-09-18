@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница с градиентом</title>
+    <script src="modernizr.js"></script>
+    <style> 
+        header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Картинка с градиентом</h2>
+        <strong class="message" id="supportMessage"></strong>
+        <canvas id="myGradientCanvas" width="400" height="500"></canvas>
+    </header>
+    <script>
+        (function () {
+            "use strict";
+            const supportMessage = document.getElementById('supportMessage');
+
+            if (supportMessage) {
+
+                if (Modernizr.canvas) {
+
+                    supportMessage.innerHTML = "<p>Есть поддержка элемента canvas.</p>";
+
+                    const canvas = document.getElementById('myGradientCanvas');
+
+                    if (canvas) {
+
+                        const context = canvas.getContext("2d");
+			const gradient = context.createLinearGradient(0, 0, 400, 500);
+			gradient.addColorStop(0, "#ff007e");
+			gradient.addColorStop(0.1, "#ff007e");
+			gradient.addColorStop(0.4, "#00ffa8");
+			gradient.addColorStop(0.65, "yellow");
+			gradient.addColorStop(1, "yellow");
+			context.fillStyle = gradient;
+			context.fillRect(0, 0, 400, 300);
+                    } else {
+
+                        console.error("Элемент canvas с id 'myGradientCanvas' не найден!");
+                    }
+                } else {
+                    supportMessage.innerHTML = "<p>Нет поддержки элемента canvas.</p>";
+                }
+            } else {
+                console.error("Элемент с id 'supportMessage' не найден!");
+            }
+        }());
+    </script>
+</body>
+</html>

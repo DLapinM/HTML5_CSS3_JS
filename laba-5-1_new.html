@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Форма</title>
+<script>
+        window.addEventListener('DOMContentLoaded', () => {
+      (function() {
+	  
+	  if(document.getElementById("first_name").required)
+	  {
+		document.getElementById("pic1").src = "no.jpeg";
+	  }
+	  else
+	  {
+		document.getElementById("pic1").src = "yes.jpeg";
+	  }
+	  
+	  if(document.getElementById("age").required)
+	  {
+		document.getElementById("pic2").src = "no.jpeg";
+	  }
+	  else
+	  {
+		document.getElementById("pic2").src = "yes.jpeg";
+	  }
+	  
+	  if(document.getElementById("email").required)
+	  {
+		document.getElementById("pic3").src = "no.jpeg";
+	  }
+	  else
+	  {
+		document.getElementById("pic3").src = "yes.jpeg";
+	  }
+	  
+	  if(document.getElementById("url").required)
+	  {
+		document.getElementById("pic4").src = "no.jpeg";
+	  }
+	  else
+	  {
+		document.getElementById("pic4").src = "yes.jpeg";
+	  }
+
+		function imgChange(img_id, input_id)
+		{
+			"use strict";
+			if (document.getElementById(input_id).checkValidity())
+            {
+              document.getElementById(img_id).src = "yes.jpeg";
+            }
+                else
+            {
+              document.getElementById(img_id).src = "no.jpeg";
+			}
+		}
+		
+		/*imgChange("pic1", "first_name");*/
+		
+		const inputs = document.querySelectorAll(".form-events input");
+		
+		inputs.forEach(el => {
+			el.addEventListener("input", function () {
+				imgChange("pic1", "first_name");
+				imgChange("pic3", "email");
+		})
+		});
+
+
+
+        })();});
+    </script>
+	<style type="text/css">
+		input:focus {
+			background-color: yellow;
+		}
+		input:valid:required {
+			border: 2px solid green;
+		}
+		input:invalid:required {
+			border: 2px solid red;
+		}
+		input:focus:valid:required {
+			border: 4px solid green;
+		}
+		input:focus:invalid:required {
+			border: 4px solid red;
+		}
+		
+		img {
+			padding-left: 10px;
+		}
+		
+		#my_form
+		{
+			width: 400px;
+			border: 3px outset brown;
+			background-color: #f0eded;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<form class="form-events" id="my_form" method="post" autocomplete="off" action="">
+	<p><h3>Пожалуйста, заполните обязательные поля.</h3></p>
+	<p><label>Имя: </label><input name="first_name" id="first_name" required /><img id= "pic1" /></p>
+	<p><label>Возраст: </label><input name="age" id="age" type="number" step="1" min="18" max="120" value="18" /><img id= "pic2" /></p>
+	<p><label>E-mail: </label><input name="email" id="email" type="email" required /><img id= "pic3" /></p>
+	<p><label>Сайт: </label><input name="url" id="url" type="url" /><img id= "pic4" /></p>
+	<p><input name="submit" type="submit" value="Отправить" /></p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги</title>
+    <link rel="stylesheet" href="styles/services.css">
+    <script>
+        (function () {
+            "use strict"
+            window.onload = function() {
+
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+
+
+                ctx.beginPath();
+                ctx.arc(150, 85, 70, 0, Math.PI * 2);
+                ctx.fillStyle = "lightblue";
+                ctx.fill();
+                ctx.strokeStyle = "green";
+                ctx.stroke();
+                ctx.closePath();
+
+
+                ctx.fillStyle = "cyan";
+                ctx.fillRect(210, 60, 110, 110);
+
+
+                ctx.beginPath();
+                ctx.moveTo(50, 150);
+                ctx.lineTo(200, 150);
+                ctx.strokeStyle = "brown";
+                ctx.lineWidth = 5;
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }());
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Наши услуги</h1>
+    <nav>
+        <ul>
+            <li><a href="mainPage.html">Главная</a></li>
+            <li><a href="aboutUs.html">О нас</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="blog.html">Блог</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <article>
+        <h2>О наших услугах</h2>
+        <p>Мы предоставляем услуги в области архитектурного и инженерно-строительного проектирования.</p>
+    </article>
+
+    <article>
+        <h2>Геометрические фигуры на Canvas</h2>
+        <canvas id="myCanvas" width="400" height="200" style="border:1px solid #000000;">
+            Ваш браузер не поддерживает Canvas.
+        </canvas>
+        <p>Здесь мы по приколу нарисовали разные геометрические фигуры с помощью Canvas API.</p>
+    </article>
+</section>
+
+<footer>
+    <p>© 2024 ООО "Рога и копыта". Все права защищены.</p>
+</footer>
+
+</body>
+</html>

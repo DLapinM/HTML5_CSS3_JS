@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог</title>
+    <link rel="stylesheet" href="styles/blog.css">
+    <script>
+        (function () {
+            "use strict"
+            let socket;
+
+            function initWebSocket() {
+                socket = new WebSocket('ws://localhost:8080'); // Укажите адрес вашего WebSocket сервера
+
+                socket.onopen = function() {
+                    console.log('Соединение установлено');
+                };
+
+                socket.onmessage = function(event) {
+                    const messageElement = document.createElement('div');
+                    messageElement.textContent = 'Сообщение от сервера: ' + event.data;
+                    document.getElementById('messages').appendChild(messageElement);
+                };
+
+                socket.onclose = function() {
+                    console.log('Соединение закрыто');
+                };
+
+                socket.onerror = function(error) {
+                    console.error('Ошибка WebSocket: ', error);
+                };
+            }
+
+            function sendMessage() {
+                const message = document.getElementById('messageInput').value;
+                socket.send(message);
+                document.getElementById('messageInput').value = ''; // Очистить поле ввода
+            }
+
+            window.onload = initWebSocket; // Инициализация WebSocket при загрузке страницы
+        }());
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Наш Блог</h1>
+    <nav>
+        <ul>
+            <li><a href="mainPage.html">Главная</a></li>
+            <li><a href="aboutUs.html">О нас</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="blog.html">Блог</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <article>
+        <h2>Дизайн и архитектура загородного дома.</h2>
+        <p>Правильная организация пространства внутри жилого дома обеспечивает более кофортные условия проживания...</p>
+        <footer>
+            <p>Автор: Колбаскин Михаил | Дата: 17 февраля 2024</p>
+        </footer>
+    </article>
+
+    <article>
+        <h2>Подбор отопительных приборов для вашего дома</h2>
+        <p>Существут множество типов отопительных приборов: радиаторы, конвекторы с кожухом и без, а также инфракрасные нагреватели. Мы расскажем о достоинствах и недостатках каждого из них...</p>
+        <footer>
+            <p>Автор: Хренкин Иван | Дата: 7 января 2024</p>
+        </footer>
+    </article>
+
+    <article>
+        <h2>Химическая очистка питьевой воды.</h2>
+        <p>Существует несколько типов химической очистки питьевой воды. Например, хлорирование или озонирование. Мы расскажем о достоинствах и недостатках каждого из этих способов. </p>
+        <footer>
+            <p>Автор: Хрюнов Пётр | Дата: 29 декабря 2023</p>
+        </footer>
+    </article>
+
+    <article>
+        <h2>Влияние музыки на настроение и продуктивную деятельность человека.</h2>
+        <p>Прослушайте замечательное музыкальное произведение из нашей коллекции.</p>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает элемент audio.
+        </audio>
+    </article>
+
+    <article>
+        <h2>Отзыв о работе нашей компании</h2>
+        <p>Прослушайте аудиозапись с отзывом от нашего клиента Геннадия Петухова.</p>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает элемент audio.
+        </audio>
+    </article>
+</section>
+
+<section>
+    <h2>Мессенджер</h2>
+    <div id="messages" style="border: 1px solid #ccc; padding: 10px; max-height: 200px; overflow-y: scroll;"></div>
+    <label for="messageInput"></label><input type="text" id="messageInput" placeholder="Введите сообщение">
+    <button onclick="sendMessage()">Отправить</button>
+</section>
+
+<footer>
+    <p>© 2024 ООО "Рога и копыта". Все права защищены.</p>
+</footer>
+
+</body>
+</html>
